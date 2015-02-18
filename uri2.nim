@@ -40,10 +40,39 @@ proc parseURI2*(uri : string): URI2 =
     return newuri
 
 
-proc 
+proc appendPathSegment*(uri : URI2, path : string) {.noreturn.} = 
+    ## Appends the path segment specified by ``path`` to the end of the existing path.
+    
+    var newPath : string = uri.path
+    var path2 : string = path
+    if newPath.endsWith("/"):
+        newPath = newPath[0..high(newPath) - 1]
+    if path2.startsWith("/"):
+        path2 = path2[1..high(path2)]
+    
+    newPath = newPath & "/" & path2
+    uri.path = newPath
+
+
+proc prependPathSegment*(uri : URI2, path : string) {.noreturn.} = 
+    ## Prepends the path segment specified by ``path`` to the end of the existing path.
+    
+    var newPath : string = uri.path
+    var path2 : string = path
+    if newPath.startsWith("/"):
+        newPath = newPath[1..high(newPath)]
+    if path2.endsWith("/"):
+        path2 = path2[0..high(path2) - 1]
+    if not path2.startsWith("/"):
+        path2 = "/" & path2
+    
+    newPath = path2 & "/" & newPath
+    uri.path = newPath
         
     
 
 var test : URI2 = parseURI2("http://www.google.com/index.html?test=my%20data&test2=something1234")
-echo(test.username)
+echo(test.path)
+test.prependPathSegment("testing")
+echo(test.path)
 
