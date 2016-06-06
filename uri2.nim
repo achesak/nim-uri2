@@ -307,13 +307,13 @@ proc setAnchor*(uri : URI2, anchor : string) {.noreturn.} =
     uri.anchor = anchor
 
 
-proc setAllQueries(uri : URI2, queries : seq[seq[string]]) {.noreturn.} = 
+proc setAllQueries*(uri : URI2, queries : seq[seq[string]]) {.noreturn.} = 
     ## Sets all the queries for ``uri``.
     
     uri.queries = queries
 
 
-proc setQuery(uri : URI2, query : string, value : string, overwrite : bool = true) {.noreturn.} = 
+proc setQuery*(uri : URI2, query : string, value : string, overwrite : bool = true) {.noreturn.} = 
     ## Sets the query with the specified name and value in ``uri``. If ``overwrite`` is set to false, this will not
     ## overwrite any query with the same name that is already present.
     
