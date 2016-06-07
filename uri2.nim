@@ -231,7 +231,7 @@ proc getAllQueries*(uri : URI2): seq[seq[string]] =
     return uri.queries
 
 
-proc getQuery(uri : URI2, query : string, default : string = ""): string = 
+proc getQuery*(uri : URI2, query : string, default : string = ""): string = 
     ## Returns a specific query in ``uri``, or the specified ``default`` if there is no query with that name.
     
     var result : string = default
@@ -334,7 +334,7 @@ proc setQuery*(uri : URI2, query : string, value : string, overwrite : bool = tr
         uri.queries.add(@[query, value])
 
 
-proc setQueries(uri : URI2, queryList : seq[seq[string]], overwrite : bool = true) {.noreturn.} = 
+proc setQueries*(uri : URI2, queryList : seq[seq[string]], overwrite : bool = true) {.noreturn.} = 
     ## Sets multiple queries with the specified names and values in ``uri``. If ``overwrite`` is set to false, this will not
     ## overwrite any query with the same name that is already present.
     ##
