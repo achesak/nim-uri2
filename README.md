@@ -7,7 +7,7 @@ and the "[purl](https://github.com/codeinthehole/purl)" Python module.
 Examples
 ========
 
-Working with path and path segments.
+Working with path and path segments:
     
     # Parse a URI.
     var uri : URI2 = parseURI2("http://www.examplesite.com/path/to/location")
@@ -35,7 +35,7 @@ Working with path and path segments.
     uri.setPathSegment("changed", 1)
     echo(uri.getPath()) # "/new/changed/example"
 
-Working with queries.
+Working with queries:
     
     # Parse a URI.
     var uri : URI2 = parseURI2("http://www.examplesite.com/index.html?ex1=hello&ex2=world")
