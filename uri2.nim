@@ -110,9 +110,7 @@ import strutils
 
 
 type
-    URI2* = ref URI2Internal
-    
-    URI2Internal* = object
+    URI2* = ref object
         scheme : string
         username : string
         password : string
