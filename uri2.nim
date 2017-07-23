@@ -232,13 +232,13 @@ proc getAllQueries*(uri : URI2): seq[seq[string]] =
 proc getQuery*(uri : URI2, query : string, default : string = ""): string = 
     ## Returns a specific query in ``uri``, or the specified ``default`` if there is no query with that name.
     
-    var result : string = default
+    var queryResult : string = default
     for i in uri.queries:
         if i[0] == query:
-            result = i[1]
+            queryResult = i[1]
             break
     
-    return result
+    return queryResult
 
 
 proc setDomain*(uri : URI2, domain : string) {.noreturn.} =
