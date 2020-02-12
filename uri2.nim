@@ -360,6 +360,7 @@ proc `$`*(uri : URI2): string =
     
     var query : string = ""
     for i in 0..high(uri.queries):
+        if uri.queries[i].len != 2: continue
         query &= uri.queries[i][0] & "=" & uri.queries[i][1]
         if i != high(uri.queries):
             query &= "&"
